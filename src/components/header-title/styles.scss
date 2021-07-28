@@ -1,0 +1,8 @@
+@use '../../styles/variables' as *;
+
+.header__title-header {
+  color: $color-title;
+  text-align: center;
+  font-size: 48px;
+  letter-spacing: 1.1px;
+}

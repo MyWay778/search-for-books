@@ -1,0 +1,6 @@
+@use './variables' as *;
+
+@mixin outlineFocusTheme {
+  outline: 1px solid $color-outline;
+  outline-offset: 1px;
+}
