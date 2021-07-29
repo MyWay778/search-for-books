@@ -4,14 +4,16 @@ import {BooksResponseData, BookType} from '../../types/books';
 
 interface BooksState {
   books: BookType[];
+  foundTotalBooks: number;
   status: 'idle' | 'loading' | 'failed';
 }
 
 export const fetchBooks = createAsyncThunk(
   'books/fetchBooks',
   async (query: string, {dispatch}) => {
-    const response = await BooksService.getBooks('tretre', 0, 10);
+    const response = await BooksService.getBooks(query, 0, 10);
     const data = await response.json() as BooksResponseData;
+    console.log(data)
     return data;
   }
 )
@@ -19,6 +21,7 @@ export const fetchBooks = createAsyncThunk(
 const initialState: BooksState = {
   books: [],
   status: 'idle',
+  foundTotalBooks: 0,
 }
 
 const booksSlice = createSlice({
@@ -32,11 +35,19 @@ const booksSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.fulfilled, (state, action) => {
-      state.books = action.payload.items.map(book => ({id: book.id, volumeInfo: {title: book.volumeInfo.title, authors: book.volumeInfo.authors}}));
-    })
+        state.books = action.payload.items.map(book => ({
+          id: book.id,
+          volumeInfo: {
+            title: book.volumeInfo.title, authors: book.volumeInfo.authors, imageLinks: {
+              smallThumbnail: book.volumeInfo.imageLinks?.smallThumbnail,
+            }
+          },
+        }));
+        state.foundTotalBooks = action.payload.totalItems;
+      })
       .addCase(fetchBooks.rejected, (state, action) => {
-      console.log('reject', action);
-    });
+        console.log('reject', action);
+      });
   }
 })
 

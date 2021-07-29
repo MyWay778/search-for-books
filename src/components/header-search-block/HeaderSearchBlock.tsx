@@ -8,13 +8,12 @@ export default function HeaderSearchBlock(): ReactElement {
   const dispatch = useAppDispatch();
 
   const searchBooks = (query: string): void => {
-    console.log('query ', query);
-    dispatch(fetchBooks('sss'));
+    dispatch(fetchBooks(query));
   }
 
   return (
     <div className="header__header-search-block">
-      <SearchInput submitValue={searchBooks} placeholderText="Search book" maxTextLength={10}/>
+      <SearchInput submitValue={searchBooks} placeholderText="Search book" maxTextLength={100}/>
     </div>
   )
 }

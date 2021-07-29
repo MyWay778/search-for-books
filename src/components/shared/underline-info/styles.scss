@@ -1,0 +1,14 @@
+@use '../../../styles/variables' as *;
+
+.underline-info {
+  text-decoration: underline;
+  color: $color-secondary;
+
+  &_margin-top-1 {
+    margin-top: 5px;
+  }
+
+  &_margin-top-3 {
+    margin-top: 30px;
+  }
+}

@@ -1,0 +1,11 @@
+.book-card-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.book-card-list__item {
+  flex-grow: 1;
+  max-width: 320px;
+}

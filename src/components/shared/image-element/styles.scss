@@ -1,0 +1,20 @@
+@use '../../../styles/mixins' as *;
+
+.image-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  @include slightlyShadow();
+
+  &_size-s {
+    width: 120px;
+    height: 160px;
+  }
+}
+
+.image-element-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}

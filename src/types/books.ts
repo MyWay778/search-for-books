@@ -8,5 +8,8 @@ export interface BookType {
   volumeInfo: {
     title: string,
     authors: string[],
-  }
+    imageLinks: {
+      smallThumbnail: string;
+    }
+  },
 }

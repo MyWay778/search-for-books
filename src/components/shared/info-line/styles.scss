@@ -1,0 +1,8 @@
+@use '../../../styles/variables' as *;
+
+.info-line {
+  font-size: 18px;
+  font-weight: $font-semi-bold;
+  text-align: center;
+  padding: 5px 0;
+}
