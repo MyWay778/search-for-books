@@ -10,6 +10,7 @@ export interface BookType {
     authors: string[],
     imageLinks: {
       smallThumbnail: string;
-    }
+    },
+    categories: string[],
   },
 }

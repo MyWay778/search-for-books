@@ -5,6 +5,6 @@ const apiConfig = {
 
 export default class BooksService {
   static async getBooks(query: string, startIndex: number, maxResults: number): Promise<Response> {
-    return await fetch(`${apiConfig.baseURL}/volumes?q=${query}&startIndex=${startIndex}&maxResults=${maxResults}&projection=lite&key=${apiConfig.apiKey}`);
+    return await fetch(`${apiConfig.baseURL}/volumes?q=${query}&startIndex=${startIndex}&maxResults=${maxResults}&key=${apiConfig.apiKey}`);
   }
 }

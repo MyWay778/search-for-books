@@ -1,0 +1,35 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.book-card-skeleton {
+  min-width: 250px;
+  max-width: 275px;
+  width: 100%;
+  height: 360px;
+  padding: 35px 20px;
+  background-color: $color-card;
+}
+
+.book-card-skeleton__image {
+  width: 120px;
+  height: 160px;
+  background-color: #ddd;
+  margin: 0 auto;
+@include addShimmerAnimationInAfter();
+}
+
+.book-card-skeleton__category {
+  @include skeletonLine(30px, 80px);
+  @include addShimmerAnimationInAfter();
+}
+
+.book-card-skeleton__title {
+  @include skeletonLine();
+  @include addShimmerAnimationInAfter();
+}
+
+.book-card-skeleton__authors {
+  @include skeletonLine(10px, 50%);
+  @include addShimmerAnimationInAfter();
+}
+

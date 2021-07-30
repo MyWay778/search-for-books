@@ -13,7 +13,7 @@ export default function SearchResult (): ReactElement {
     <main className="main">
       <div className="main-container">
         <InfoLine infoText={`Found ${foundBooksCount} results`}/>
-        <BookCardList books={foundBooks}/>
+        <BookCardList books={foundBooks} mt={1}/>
       </div>
     </main>
   )

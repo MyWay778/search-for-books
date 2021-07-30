@@ -38,9 +38,12 @@ const booksSlice = createSlice({
         state.books = action.payload.items.map(book => ({
           id: book.id,
           volumeInfo: {
-            title: book.volumeInfo.title, authors: book.volumeInfo.authors, imageLinks: {
+            title: book.volumeInfo.title,
+            authors: book.volumeInfo.authors,
+            imageLinks: {
               smallThumbnail: book.volumeInfo.imageLinks?.smallThumbnail,
-            }
+            },
+            categories: book.volumeInfo.categories,
           },
         }));
         state.foundTotalBooks = action.payload.totalItems;
