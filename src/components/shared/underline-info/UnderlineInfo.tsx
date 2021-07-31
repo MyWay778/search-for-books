@@ -4,7 +4,7 @@ import './styles.scss';
 
 interface UnderlineInfoProps {
   infoText: string;
-  mt?: 1 | 3;
+  mt?: 1 | 2 |3;
 }
 
 export default function UnderlineInfo ({infoText, mt}: UnderlineInfoProps): ReactElement {

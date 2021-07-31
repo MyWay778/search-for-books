@@ -1,7 +1,18 @@
-.subtitle-h3 {
-  font-size: 15px;
+.subtitle {
+
+  &_h3 {
+    font-size: 15px;
+  }
+
+  &_h2 {
+    font-size: 24px;
+  }
 
   &_margin-top-2 {
     margin-top: 10px;
+  }
+
+  &_margin-top-3 {
+    margin-top: 30px;
   }
 }

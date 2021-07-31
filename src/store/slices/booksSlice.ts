@@ -58,6 +58,7 @@ const booksSlice = createSlice({
       state.currentPage = 0;
     }
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state, action) => {

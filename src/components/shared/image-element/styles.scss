@@ -1,15 +1,22 @@
 @use '../../../styles/mixins' as *;
+@use '../../../styles/variables' as *;
 
 .image-element {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+  background-color: $color-card;
   @include slightlyShadow();
 
   &_size-s {
     width: 120px;
     height: 160px;
+  }
+
+  &_size-l {
+    width: 360px;
+    height: 480px;
   }
 }
 
