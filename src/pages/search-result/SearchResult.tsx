@@ -27,6 +27,7 @@ export default function SearchResult(): ReactElement {
     dispatch(fetchBooks());
   }
 
+  console.log(isLoading, foundBooks.length )
   return (
     <main className="main">
       <div className="main-container">
