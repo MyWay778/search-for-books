@@ -4,6 +4,7 @@ import Subtitle from '../shared/subtitle/Subtitle';
 import SecondaryInfo from '../shared/secondary-info/SecondaryInfo';
 import './styles.scss';
 import ImageElement from '../shared/image-element/ImageElement';
+import limitStringLength from '../../helpers/limitStringLength';
 
 interface BookCardProps {
   imageSrc: string;
@@ -17,8 +18,8 @@ export default function BookCard({imageSrc, title = 'No name', category = '', au
     <div className="book-card">
       <ImageElement imageSrc={imageSrc} altText={title}/>
       <UnderlineInfo infoText={category} mt={3}/>
-      <Subtitle titleText={title} mt={2}/>
-      <SecondaryInfo infoText={authors}/>
+      <Subtitle titleText={limitStringLength(title, 50)} mt={2}/>
+      <SecondaryInfo infoText={limitStringLength(authors, 50)}/>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 @use '../../../styles/variables' as *;
 
 .underline-info {
+  height: 19px;
   text-decoration: underline;
   color: $color-secondary;
 

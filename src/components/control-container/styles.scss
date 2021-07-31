@@ -1,0 +1,18 @@
+.control-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  padding-right: 50px;
+
+  &_margin-top-3 {
+    margin-top: 30px;
+  }
+}
+
+.control-container__loader-container {
+  width: 50px;
+  height: auto;
+}
