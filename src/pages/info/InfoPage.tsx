@@ -1,6 +1,6 @@
 import {ReactElement} from 'react';
-import Container from '../../components/shared/container/Container';
 import './styles.scss';
+import {Container} from '../../components/shared';
 
 export default function InfoPage (): ReactElement {
   return (

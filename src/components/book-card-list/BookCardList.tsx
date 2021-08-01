@@ -1,9 +1,8 @@
 import {ReactElement, ReactNode} from 'react';
 import clsx from 'clsx';
 import {BookType} from '../../types/books';
-import BookCard from '../book-card/BookCard';
 import './style.scss';
-import BookCardSkeleton from '../book-card-skeleton/BookCardSkeleton';
+import {BookCard, BookCardSkeleton} from '../index';
 
 interface BookCardListProps {
   books: BookType[];

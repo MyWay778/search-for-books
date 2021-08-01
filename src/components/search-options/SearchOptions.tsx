@@ -1,7 +1,6 @@
 import {ReactElement, SyntheticEvent} from 'react';
-import Selector from '../shared/selector/Selector';
-import SelectorOption from '../shared/selector-option/SelectorOption';
 import './styles.scss';
+import {Selector, SelectorOption} from '../shared';
 
 interface SearchOptionsProps {
   selectCategoriesHandler: (e: SyntheticEvent) => void;

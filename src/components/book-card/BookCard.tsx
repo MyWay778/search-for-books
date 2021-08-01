@@ -1,10 +1,7 @@
 import React, {ReactElement} from 'react';
-import UnderlineInfo from '../shared/underline-info/UnderlineInfo';
-import Subtitle from '../shared/subtitle/Subtitle';
-import SecondaryInfo from '../shared/secondary-info/SecondaryInfo';
 import './styles.scss';
-import ImageElement from '../shared/image-element/ImageElement';
 import limitStringLength from '../../helpers/limitStringLength';
+import {ImageElement, SecondaryInfo, Subtitle, UnderlineInfo} from '../shared';
 
 interface BookCardProps {
   imageSrc: string;

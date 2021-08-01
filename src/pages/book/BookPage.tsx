@@ -2,14 +2,16 @@ import {ReactElement} from 'react';
 import {useParams, Redirect} from 'react-router-dom';
 import useAppSelector from '../../hooks/useAppSelector';
 import {selectFoundBooks} from '../../store/selectors';
-import Container from '../../components/shared/container/Container';
-import ImageElement from '../../components/shared/image-element/ImageElement';
 import './styles.scss';
-import UnderlineInfo from '../../components/shared/underline-info/UnderlineInfo';
-import Subtitle from '../../components/shared/subtitle/Subtitle';
-import SecondaryInfo from '../../components/shared/secondary-info/SecondaryInfo';
 import joinStringFromArray from '../../helpers/joinStringFromArray';
-import DescriptionField from '../../components/shared/description-field/DescriptionField';
+import {
+  Container,
+  DescriptionField,
+  ImageElement,
+  SecondaryInfo,
+  Subtitle,
+  UnderlineInfo
+} from '../../components/shared';
 
 interface BookParams {
   bookId: string;

@@ -1,15 +1,14 @@
 import React, {ReactElement, useMemo} from 'react';
 import {Redirect, useHistory} from 'react-router-dom';
-import InfoLine from '../../components/shared/info-line/InfoLine';
 import {setNextPage} from '../../store/slices/booksSlice';
 import './styles.scss';
 import useAppSelector from '../../hooks/useAppSelector';
 import {selectFoundBooks, selectFoundTotalBooks, selectIsLoading} from '../../store/selectors';
-import BookCardList from '../../components/book-card-list/BookCardList';
-import ControlContainer from '../../components/control-container/ControlContainer';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import Routes from '../../constants/routes';
 import {fetchBooks} from '../../store/actions/books';
+import {BookCardList, ControlContainer} from '../../components';
+import {InfoLine} from '../../components/shared';
 
 export default function SearchResult(): ReactElement {
   const foundBooksCount = useAppSelector(selectFoundTotalBooks);

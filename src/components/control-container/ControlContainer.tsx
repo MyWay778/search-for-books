@@ -1,8 +1,7 @@
 import React, {ReactElement} from 'react';
-import Button from '../shared/button/Button';
-import Loader from '../shared/loader/Loader';
 import './styles.scss';
 import clsx from 'clsx';
+import {Button, Loader} from '../shared';
 
 interface ControlContainerProps {
   isLoading: boolean;

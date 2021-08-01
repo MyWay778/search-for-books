@@ -5,9 +5,9 @@ import {SearchInput} from '../shared';
 import './styles.scss';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import Routes from '../../constants/routes';
-import SearchOptions from '../search-options/SearchOptions';
 import {changeCategories, changeSortingBy} from '../../store/slices/searchOptionsSlice';
 import {fetchBooks} from '../../store/actions/books';
+import {SearchOptions} from '../index';
 
 export default function HeaderSearchBlock(): ReactElement {
   const dispatch = useAppDispatch();

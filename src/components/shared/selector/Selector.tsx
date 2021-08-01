@@ -1,6 +1,6 @@
 import {ReactElement, SyntheticEvent} from 'react';
-import SelectorOption from '../selector-option/SelectorOption';
 import './styles.scss';
+import {SelectorOption} from '../index';
 
 interface SelectorProps {
   children: ReturnType<typeof SelectorOption> | ReturnType<typeof SelectorOption>[];
