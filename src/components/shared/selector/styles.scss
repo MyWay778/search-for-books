@@ -11,11 +11,13 @@
 
 .selector__title {
   font-size: 16px;
+  white-space: nowrap
 }
 
 .selector__select {
   width: 100%;
   max-width: 200px;
+  min-width: 100px;
   height: 30px;
   padding-left: 5px;
   font-size: 16px;

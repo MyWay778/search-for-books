@@ -1,13 +1,18 @@
-import {ReactElement} from 'react';
+import {ReactElement, SyntheticEvent} from 'react';
 import Selector from '../shared/selector/Selector';
 import SelectorOption from '../shared/selector-option/SelectorOption';
 import './styles.scss';
 
-export default function SearchOptions(): ReactElement {
+interface SearchOptionsProps {
+  selectCategoriesHandler: (e: SyntheticEvent) => void;
+  selectSortingByHandler: (e: SyntheticEvent) => void;
+}
+
+export default function SearchOptions({selectCategoriesHandler, selectSortingByHandler}: SearchOptionsProps): ReactElement {
   return (
     <div className="search-options">
-      <Selector title="Categories">
-        <SelectorOption value="all" title="all" selected/>
+      <Selector title="Categories" onChange={selectCategoriesHandler} defaultValue="">
+        <SelectorOption value="" title="all"/>
         <SelectorOption value="art" title="art"/>
         <SelectorOption value="biography" title="biography"/>
         <SelectorOption value="computers" title="computers"/>
@@ -15,8 +20,8 @@ export default function SearchOptions(): ReactElement {
         <SelectorOption value="medical" title="medical"/>
         <SelectorOption value="poetry" title="poetry"/>
       </Selector>
-      <Selector title="Sorting by">
-        <SelectorOption value="relevance " title="relevance" selected/>
+      <Selector title="Sorting by" onChange={selectSortingByHandler} defaultValue="relevance">
+        <SelectorOption value="relevance" title="relevance"/>
         <SelectorOption value="newest" title="newest"/>
       </Selector>
     </div>
