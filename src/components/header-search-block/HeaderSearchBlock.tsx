@@ -6,6 +6,7 @@ import './styles.scss';
 import {fetchBooks} from '../../store/slices/booksSlice';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import Routes from '../../constants/routes';
+import SearchOptions from '../search-options/SearchOptions';
 
 export default function HeaderSearchBlock(): ReactElement {
   const dispatch = useAppDispatch();
@@ -44,6 +45,7 @@ export default function HeaderSearchBlock(): ReactElement {
     <div className="header__header-search-block" data-testid="header-search-block">
       <SearchInput inputValue={inputValue} onChange={changeSearchValueHandler} onSubmit={submitSearchQuery}
                    onKeyDown={pressEnterHandler} placeholderText="Search book" maxTextLength={100}/>
+      <SearchOptions/>
     </div>
   )
 }
