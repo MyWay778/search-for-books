@@ -25,3 +25,10 @@
   height: auto;
   object-fit: contain;
 }
+
+@media (max-width: 450px) {
+  .image-element_size-l {
+    width: 240px;
+    height: 320px;
+  }
+}
