@@ -4,7 +4,7 @@ const apiConfig = {
 }
 
 export default class BooksService {
-  static async getBooks(query: string, startIndex: number, maxResults: number): Promise<Response> {
-    return await fetch(`${apiConfig.baseURL}/volumes?q=${query}&startIndex=${startIndex}&maxResults=${maxResults}&key=${apiConfig.apiKey}`);
+  static async getBooks(query: string, startIndex: number, maxResults: number, categories?: string, sortingBy?: string): Promise<Response> {
+    return await fetch(`${apiConfig.baseURL}/volumes?q=${query}${categories && `+subject:${categories}`}${sortingBy && `&orderBy=${sortingBy}`}&startIndex=${startIndex}&maxResults=${maxResults}&key=${apiConfig.apiKey}`);
   }
 }

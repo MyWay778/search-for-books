@@ -1,8 +1,6 @@
-import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
-import BooksService from '../../services/booksAPI';
-import {BooksResponseData, BookType} from '../../types/books';
-import {RootState} from '../store';
-import constructBooksData from '../../helpers/constructBooksData';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {BookType} from '../../types/books';
+import {fetchBooks} from '../actions/books';
 
 interface BooksState {
   searchQuery: string;
@@ -12,20 +10,6 @@ interface BooksState {
   currentPage: number;
   maxResults: number;
 }
-
-export const fetchBooks = createAsyncThunk(
-  'books/fetchBooks',
-  async (_, {getState}) => {
-    const {searchQuery, currentPage, maxResults} = (getState() as RootState).books;
-    const response = await BooksService.getBooks(searchQuery, currentPage, maxResults);
-    const data = await response.json() as BooksResponseData;
-    let booksData:BookType[] = [];
-    if(data.items && data.items.length > 0) {
-      booksData = constructBooksData(data.items);
-    }
-    return {books: booksData, foundTotalBooks: data.totalItems};
-  }
-)
 
 const initialState: BooksState = {
   searchQuery: '',

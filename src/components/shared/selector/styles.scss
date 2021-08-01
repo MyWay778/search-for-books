@@ -1,0 +1,25 @@
+@use '../../../styles/variables' as *;
+
+.selector {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: $color-title;
+}
+
+.selector__title {
+  font-size: 16px;
+  white-space: nowrap
+}
+
+.selector__select {
+  width: 100%;
+  max-width: 200px;
+  min-width: 100px;
+  height: 30px;
+  padding-left: 5px;
+  font-size: 16px;
+  color: $color-secondary
+}

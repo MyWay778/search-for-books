@@ -3,9 +3,11 @@ import {useHistory, useLocation} from 'react-router-dom';
 import {setSearchQuery, cleanup} from '../../store/slices/booksSlice';
 import {SearchInput} from '../shared';
 import './styles.scss';
-import {fetchBooks} from '../../store/slices/booksSlice';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import Routes from '../../constants/routes';
+import SearchOptions from '../search-options/SearchOptions';
+import {changeCategories, changeSortingBy} from '../../store/slices/searchOptionsSlice';
+import {fetchBooks} from '../../store/actions/books';
 
 export default function HeaderSearchBlock(): ReactElement {
   const dispatch = useAppDispatch();
@@ -40,10 +42,27 @@ export default function HeaderSearchBlock(): ReactElement {
     }
   }
 
+  const changeSelectorHandler = (e: SyntheticEvent, callback: (value: string) => void) => {
+    const target = e.target as HTMLSelectElement;
+    const value = (target.children[target.selectedIndex] as HTMLOptionElement).value;
+    if (value !== null) {
+      callback(value);
+    }
+  }
+
+  const changeCategoriesHandler = (e: SyntheticEvent) => {
+    changeSelectorHandler(e, (value: string) => dispatch(changeCategories(value)));
+  }
+
+  const changeSortByHandler = (e: SyntheticEvent) => {
+    changeSelectorHandler(e, (value: string) => dispatch(changeSortingBy(value)));
+  }
+
   return (
     <div className="header__header-search-block" data-testid="header-search-block">
       <SearchInput inputValue={inputValue} onChange={changeSearchValueHandler} onSubmit={submitSearchQuery}
                    onKeyDown={pressEnterHandler} placeholderText="Search book" maxTextLength={100}/>
+      <SearchOptions selectCategoriesHandler={changeCategoriesHandler} selectSortingByHandler={changeSortByHandler}/>
     </div>
   )
 }
