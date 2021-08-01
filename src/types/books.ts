@@ -9,8 +9,10 @@ export interface BookType {
     title: string,
     authors: string[],
     imageLinks: {
-      smallThumbnail: string;
+      smallThumbnail: string,
+      thumbnail: string,
     },
+    description: string,
     categories: string[],
-  },
+  };
 }

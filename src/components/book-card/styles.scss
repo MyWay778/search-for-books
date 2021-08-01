@@ -7,4 +7,10 @@
   height: 360px;
   padding: 35px 20px;
   background-color: $color-card;
+  cursor: pointer;
+  transition: box-shadow 0.4s;
+
+  &:hover {
+    box-shadow: 3px 3px 10px 0px rgb(0 0 0 / 20%);
+  }
 }

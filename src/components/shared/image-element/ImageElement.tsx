@@ -6,7 +6,7 @@ import './styles.scss';
 interface ImageElementProps {
   imageSrc: string;
   altText?: string;
-  size?: 's';
+  size?: 's' | 'l';
 }
 
 export default function ImageElement({imageSrc, altText = 'image', size = 's'}: ImageElementProps): ReactElement {

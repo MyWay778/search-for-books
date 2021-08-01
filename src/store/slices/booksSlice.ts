@@ -41,10 +41,9 @@ const booksSlice = createSlice({
   initialState,
   reducers: {
     setSearchQuery: (state, action: PayloadAction<string>) => {
-      if (state.currentPage !== 0) {
-        state.currentPage = 0;
-        state.books = [];
-      }
+      state.currentPage = 0;
+      state.books = [];
+      state.foundTotalBooks = null;
       state.searchQuery = action.payload;
     },
     setBooks: (state, action: PayloadAction<BookType[]>) => {
@@ -59,6 +58,7 @@ const booksSlice = createSlice({
       state.currentPage = 0;
     }
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state, action) => {
@@ -81,5 +81,4 @@ const booksSlice = createSlice({
 })
 
 export const {cleanup, setBooks, setSearchQuery, setNextPage} = booksSlice.actions;
-
 export default booksSlice.reducer;

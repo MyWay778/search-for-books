@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+
+.book-page {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+
+.book-page__image {
+  flex-grow: 1;
+  max-width: 600px;
+  min-width: 400px;
+  padding: 50px 0;
+  background-color: $color-card;
+}
+
+.book-page__info {
+  flex-grow: 1;
+  max-width: 600px;
+  padding: 50px 0 0 50px;
+}

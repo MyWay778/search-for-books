@@ -1,5 +1,5 @@
 import React, {ReactElement, useMemo} from 'react';
-import {Redirect} from 'react-router-dom';
+import {Redirect, useHistory} from 'react-router-dom';
 import InfoLine from '../../components/shared/info-line/InfoLine';
 import {fetchBooks, setNextPage} from '../../store/slices/booksSlice';
 import './styles.scss';
@@ -8,6 +8,7 @@ import {selectFoundBooks, selectFoundTotalBooks, selectIsLoading} from '../../st
 import BookCardList from '../../components/book-card-list/BookCardList';
 import ControlContainer from '../../components/control-container/ControlContainer';
 import useAppDispatch from '../../hooks/useAppDispatch';
+import Routes from '../../constants/routes';
 
 export default function SearchResult(): ReactElement {
   const foundBooksCount = useAppSelector(selectFoundTotalBooks);
@@ -15,8 +16,9 @@ export default function SearchResult(): ReactElement {
   const isLoading = useAppSelector(selectIsLoading);
   const {currentPage, maxResults} = useAppSelector(state => state.books);
   const dispatch = useAppDispatch();
+  const history = useHistory();
 
-  const showControlContainer = foundBooksCount !== null && !(currentPage + maxResults >=  foundBooksCount);
+  const showControlContainer = foundBooksCount !== null && !(currentPage + maxResults >= foundBooksCount);
 
   if (foundBooksCount === null && !isLoading) {
     return <Redirect to='/'/>;
@@ -27,12 +29,17 @@ export default function SearchResult(): ReactElement {
     dispatch(fetchBooks());
   }
 
+  const clickOnBookCardHandler = (bookId: string): void => {
+    history.push(Routes.book + '/' + bookId);
+  }
+
   return (
     <main className="main">
       <div className="main-container">
         {foundBooksCount !== null && (<InfoLine infoText={`Found ${foundBooksCount} results`}/>)}
         {(foundBooksCount || isLoading) &&
-        <BookCardList books={foundBooks} isLoading={isLoading && foundBooks.length === 0} mt={1}/>}
+        <BookCardList books={foundBooks} isLoading={isLoading && foundBooks.length === 0} mt={1}
+                      bookCardClickHandler={clickOnBookCardHandler}/>}
         {showControlContainer && <ControlContainer onClick={clickOnLoadMoreHandler} isLoading={isLoading} mt={3}/>}
       </div>
     </main>

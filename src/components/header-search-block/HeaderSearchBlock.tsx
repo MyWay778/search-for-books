@@ -1,6 +1,6 @@
-import {ReactElement, SyntheticEvent, useEffect, useState} from 'react';
+import {KeyboardEvent, ReactElement, SyntheticEvent, useEffect, useState} from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
-import {setSearchQuery,cleanup} from '../../store/slices/booksSlice';
+import {setSearchQuery, cleanup} from '../../store/slices/booksSlice';
 import {SearchInput} from '../shared';
 import './styles.scss';
 import {fetchBooks} from '../../store/slices/booksSlice';
@@ -20,24 +20,30 @@ export default function HeaderSearchBlock(): ReactElement {
     }
   }, [location])
 
-  const changeSearchValueHandler = (e: SyntheticEvent) => {
+  const changeSearchValueHandler = (e: SyntheticEvent): void => {
     const target = e.target as HTMLInputElement;
     const value = target.value;
     setInputValue(value);
   }
 
-  const submitSearchQuery = () => {
-    if(inputValue.trim()) {
+  const submitSearchQuery = (): void => {
+    if (inputValue.trim()) {
       dispatch(setSearchQuery(inputValue));
       dispatch(fetchBooks());
       history.push(`${Routes.results}`);
     }
   }
 
+  const pressEnterHandler = (e: SyntheticEvent): void => {
+    if ((e as KeyboardEvent).key === 'Enter') {
+      submitSearchQuery();
+    }
+  }
+
   return (
     <div className="header__header-search-block" data-testid="header-search-block">
       <SearchInput inputValue={inputValue} onChange={changeSearchValueHandler} onSubmit={submitSearchQuery}
-                   placeholderText="Search book" maxTextLength={100}/>
+                   onKeyDown={pressEnterHandler} placeholderText="Search book" maxTextLength={100}/>
     </div>
   )
 }

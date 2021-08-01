@@ -5,6 +5,7 @@ import {Header, HeaderSearchBlock, HeaderTitle} from './components';
 import './styles/styles.scss';
 import SearchResult from './pages/search-result/SearchResult';
 import InfoPage from './pages/info/InfoPage';
+import BookPage from './pages/book/BookPage';
 
 function App() {
   return (
@@ -16,12 +17,9 @@ function App() {
         <HeaderSearchBlock/>
       </Header>
       <Switch>
-        <Route path="/" exact>
-          <InfoPage/>
-        </Route>
-        <Route path="/results">
-          <SearchResult/>
-        </Route>
+        <Route path="/" exact component={InfoPage}/>
+        <Route path="/results" component={SearchResult}/>
+        <Route path="/book/:bookId" component={BookPage}/>
       </Switch>
     </>
   );
