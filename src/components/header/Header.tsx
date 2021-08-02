@@ -5,7 +5,7 @@ interface HeaderProps {
   children: HTMLElement | ReactNode;
 }
 
-export default function Header ({children}: HeaderProps): ReactElement {
+export default function Header({children}: HeaderProps): ReactElement {
   return (
     <header className="header">
       <div className="header__container">

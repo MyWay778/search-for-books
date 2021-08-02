@@ -8,7 +8,7 @@ const constructBooksData = (books: BookType[]): BookType[] => {
       authors: book.volumeInfo.authors,
       imageLinks: {
         smallThumbnail: book.volumeInfo.imageLinks?.smallThumbnail,
-        thumbnail: book.volumeInfo.imageLinks?.smallThumbnail.replace(/(?<=zoom=)\d/,'2'),
+        thumbnail: book.volumeInfo.imageLinks?.smallThumbnail.replace(/(?<=zoom=)\d/, '2'),
       },
       description: book.volumeInfo.description,
       categories: book.volumeInfo.categories,

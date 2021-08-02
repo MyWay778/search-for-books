@@ -14,7 +14,8 @@ export default function SearchInput({inputValue, onChange, onSubmit, placeholder
 
   return (
     <div className="search-input">
-      <input className="search-input__input" type="text" value={inputValue} onKeyDown={onKeyDown} onChange={onChange} placeholder={placeholderText || ''}
+      <input className="search-input__input" type="text" value={inputValue} onKeyDown={onKeyDown} onChange={onChange}
+             placeholder={placeholderText || ''}
              maxLength={maxTextLength || 200}/>
       <button className="search-input__button" onClick={onSubmit}/>
     </div>

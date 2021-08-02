@@ -7,7 +7,7 @@ interface LoaderProps {
   size?: 's';
 }
 
-export default function Loader({color = 'gray', size = 's'}:LoaderProps): ReactElement {
+export default function Loader({color = 'gray', size = 's'}: LoaderProps): ReactElement {
   const LoaderClass = clsx('loader', `loader_color-${color}`, `loader_size-${size}`);
 
   return (

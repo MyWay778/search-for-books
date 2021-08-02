@@ -10,7 +10,7 @@ interface ButtonProps {
 }
 
 export default function Button({onClick, buttonText, ml, disabled = false}: ButtonProps): ReactElement {
-  const buttonClass =  clsx(
+  const buttonClass = clsx(
     'button',
     ml && `button_margin-left-${ml}`,
     disabled && 'button_disabled',

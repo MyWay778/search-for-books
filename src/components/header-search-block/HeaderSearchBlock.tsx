@@ -20,7 +20,7 @@ export default function HeaderSearchBlock(): ReactElement {
       setInputValue('');
       dispatch(cleanup());
     }
-  }, [location])
+  }, [location, dispatch]);
 
   const changeSearchValueHandler = (e: SyntheticEvent): void => {
     const target = e.target as HTMLInputElement;

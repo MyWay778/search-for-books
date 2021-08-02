@@ -5,7 +5,7 @@ interface InfoLineProps {
   infoText: string;
 }
 
-export default function InfoLine ({infoText}: InfoLineProps): ReactElement {
+export default function InfoLine({infoText}: InfoLineProps): ReactElement {
   return (
     <div className="info-line">{infoText}</div>
   )

@@ -1,4 +1,4 @@
-import {ReactElement, ReactNode} from 'react';
+import {ReactElement} from 'react';
 import clsx from 'clsx';
 import {BookType} from '../../types/books';
 import './style.scss';
@@ -27,19 +27,22 @@ export default function BookCardList({books, isLoading, mt, bookCardClickHandler
 
         let bookCardHandler;
         if (bookCardClickHandler) {
-          bookCardHandler = (): void => {bookCardClickHandler(book.id)}
+          bookCardHandler = (): void => {
+            bookCardClickHandler(book.id)
+          }
         }
 
         return (
-        <li className="book-card-list__item" key={book.id + i}>
-          <BookCard imageSrc={book.volumeInfo.imageLinks.smallThumbnail}
-                    category={book.volumeInfo.categories && (book.volumeInfo.categories[0] || '')}
-                    title={book.volumeInfo.title}
-                    authors={book.volumeInfo.authors?.join(', ')}
-                    onClick={bookCardHandler}
-          />
-        </li>
-      )})}
+          <li className="book-card-list__item" key={book.id + i}>
+            <BookCard imageSrc={book.volumeInfo.imageLinks.smallThumbnail}
+                      category={book.volumeInfo.categories && (book.volumeInfo.categories[0] || '')}
+                      title={book.volumeInfo.title}
+                      authors={book.volumeInfo.authors?.join(', ')}
+                      onClick={bookCardHandler}
+            />
+          </li>
+        )
+      })}
     </ul>
   )
 }

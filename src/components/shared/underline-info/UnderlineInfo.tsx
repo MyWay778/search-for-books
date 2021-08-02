@@ -4,10 +4,10 @@ import './styles.scss';
 
 interface UnderlineInfoProps {
   infoText: string;
-  mt?: 1 | 2 |3;
+  mt?: 1 | 2 | 3;
 }
 
-export default function UnderlineInfo ({infoText, mt}: UnderlineInfoProps): ReactElement {
+export default function UnderlineInfo({infoText, mt}: UnderlineInfoProps): ReactElement {
   const underlineInfoClass = clsx('underline-info', mt && `underline-info_margin-top-${mt}`);
 
   return (

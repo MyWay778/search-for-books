@@ -1,7 +1,7 @@
 import {ReactElement} from 'react';
 import './styles.scss';
 
-export default function BookCardSkeleton (): ReactElement  {
+export default function BookCardSkeleton(): ReactElement {
   return (
     <div className="book-card-skeleton">
       <div className="book-card-skeleton__image"></div>

@@ -1,4 +1,4 @@
-import React, {ReactElement, useMemo} from 'react';
+import React, {ReactElement} from 'react';
 import {Redirect, useHistory} from 'react-router-dom';
 import {setNextPage} from '../../store/slices/booksSlice';
 import './styles.scss';
